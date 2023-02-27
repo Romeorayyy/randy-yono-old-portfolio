@@ -1,0 +1,204 @@
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
+.card-layout {
+  position: relative;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.card-intro {
+  padding: 30px;
+  text-align: center;
+  z-index: 10;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-intro h1 {
+  margin: 0 0 10px 0;
+  line-height: 1;
+  font-weight: 700;
+}
+.card-intro p {
+  max-width: 500px;
+  margin: 20px auto;
+  font-size: 1rem;
+  font-weight: 300;
+}
+.card {
+  margin: 0 auto;
+  position: relative;
+  background: #fff;
+}
+.cover-img {
+  position: relative;
+  display: none;
+  /* Firefox bug - 3D CSS transform, jagged edges */
+  outline: 1px solid transparent;
+}
+
+.flex-direction {
+  display: flex;
+  flex-direction: column;
+}
+
+.no-csstransforms3d .card-layout:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.no-csstransforms3d .card {
+  float: right;
+}
+.no-csstransforms3d .card::before {
+  display: none;
+}
+.card-3d-right-side,
+.card-3d-bottom-side {
+  display: none;
+}
+.no-csstransforms3d .card-3d-right-side,
+.no-csstransforms3d .card-3d-bottom-side {
+  display: none;
+}
+
+/* Close Card */
+.close-card {
+  display: none;
+}
+
+.cover-media {
+  position: relative;
+  padding-top: 70%; /*filter: blur(20px);*/
+  background-size: cover;
+  background-position: center center;
+  transition: all 0.6s;
+}
+/* disabled blur animation due to poor mobile performance */
+/*.is-card-loaded .cover-media {
+	filter: blur(0);
+	}
+.is-card-opened .cover-media {
+	transition: all 0.6s;
+	}	*/
+
+.is-ajax-page-active .cover-media {
+  padding-top: 60%;
+}
+
+/* Tablet Only Styles */
+/*@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+	.card {
+	  max-width: 84%; box-shadow: 0 0 20px #e6e6e6;
+	}
+
+}*/
+
+/* DESKTOPS */
+@media only screen and (min-width: 1400px) {
+  .card-triggers .button {
+    margin-right: 15px;
+    padding: 22px 42px;
+  }
+  .card-layout {
+    padding-top: 100px;
+    width: 90%;
+    height: 100vh;
+    -webkit-transition: all 0.7s;
+    -moz-transition: all 0.7s;
+    transition: all 0.7s;
+  }
+  .is-card-open .card-layout {
+    height: auto;
+    /*padding-bottom: 100px;*/
+  }
+  .is-card-open .card-layout .card {
+    max-width: 700px;
+  }
+  .is-ajax-page-active .card-layout {
+    padding-top: 0px;
+  }
+  .is-ajax-page-active .card-layout .card {
+    max-width: 760px;
+    -webkit-transition: -webkit-transform 0.6s;
+    -moz-transition: -moz-transform 0.6s;
+    transition: all 0.6s;
+  }
+
+  .card {
+    max-width: 550px;
+  }
+
+
+.card-intro {
+    padding: 277px;
+    text-align: center;
+    z-index: 10;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: -10;
+    /* margin-bottom: 17rem; */
+    transform: translate(-0.09999999999999964rem, -3rem);
+}
+
+
+
+
+
+  .card-intro h1 {
+    font-size: 8vw;
+    letter-spacing: -5px;
+  }
+  .card-intro p {
+    font-size: 25px;
+    padding: 10px 0 44px;
+    margin: 0;
+  }
+
+  /* IE 11 FIXES */
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .card {
+      -webkit-backface-visibility: visible;
+      backface-visibility: visible;
+    }
+    .card::before {
+      transform: translateZ(-300px) translateX(-18%) translateY(170px);
+    }
+  }
+
+  @media only screen and (min-width: 1600px) {
+    .card-intro h1 {
+      font-size: 8rem;
+    }
+    .is-ajax-page-active .card-layout .card {
+      max-width: 860px;
+    }
+  }
+
+  @media only screen and (min-width: 992px) and (min-height: 800px) {
+    .card-intro {
+      top: 20px;
+      left: 380px;
+      gap: 0.5rem;
+    }
+    .card-layout {
+      padding-top: 130px;
+    }
+  }
+
+  @media only screen and (min-width: 992px) and (min-height: 900px) {
+    .card-intro {
+      top: 160px;
+    }
+    .card-layout {
+      padding-top: 200px;
+    }
+  }
+}
